@@ -1,13 +1,16 @@
-<systemConfiguration xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="00000000-0000-0000-0000-000000000001" version="1">
+<systemConfiguration xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="00000000-0000-0000-0000-000000000001" version="3">
     <name>SystemConfiguration</name>
     <metadata>
-        <requestTimestamp>2022-03-21T16:10:11.023Z</requestTimestamp>
-        <createTimestamp>2022-03-21T16:10:11.190Z</createTimestamp>
+        <requestTimestamp>2022-03-22T09:01:12.595Z</requestTimestamp>
+        <createTimestamp>2022-03-22T09:01:12.752Z</createTimestamp>
         <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</createChannel>
+        <modifyTimestamp>2022-03-22T10:10:47.784Z</modifyTimestamp>
+        <modifierRef oid="00000000-0000-0000-0000-000000000002" relation="org:default" type="c:UserType"/>
+        <modifyChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#user</modifyChannel>
     </metadata>
     <operationExecution id="131">
         <recordType>simple</recordType>
-        <timestamp>2022-03-21T16:10:11.336Z</timestamp>
+        <timestamp>2022-03-22T09:01:12.894Z</timestamp>
         <operation>
             <objectDelta>
                 <t:changeType>add</t:changeType>
@@ -23,6 +26,26 @@
         </operation>
         <status>success</status>
         <channel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#init</channel>
+    </operationExecution>
+    <operationExecution id="133">
+        <recordType>simple</recordType>
+        <timestamp>2022-03-22T10:10:47.843Z</timestamp>
+        <operation>
+            <objectDelta>
+                <t:changeType>modify</t:changeType>
+                <t:objectType>c:SystemConfigurationType</t:objectType>
+            </objectDelta>
+            <executionResult>
+                <operation>com.evolveum.midpoint.model.impl.lens.ChangeExecutor.executeDelta</operation>
+                <status>success</status>
+                <importance>normal</importance>
+                <token>1000000000000001469</token>
+            </executionResult>
+            <objectName>SystemConfiguration</objectName>
+        </operation>
+        <status>success</status>
+        <initiatorRef oid="00000000-0000-0000-0000-000000000002" relation="org:default" type="c:UserType"/>
+        <channel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#user</channel>
     </operationExecution>
     <indestructible>true</indestructible>
     <iteration>0</iteration>
@@ -94,6 +117,10 @@
             <details>false</details>
         </auditing>
     </logging>
+    <defaultObjectPolicyConfiguration id="132">
+        <objectTemplateRef oid="10000000-9999-9999-0000-a000fe000001" relation="org:default" type="c:ObjectTemplateType"/>
+        <type>c:UserType</type>
+    </defaultObjectPolicyConfiguration>
     <cleanupPolicy>
         <auditRecords>
             <maxAge>P3M</maxAge>
