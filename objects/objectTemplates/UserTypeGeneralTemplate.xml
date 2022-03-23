@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objectTemplate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" oid="10000000-9999-9999-0000-a000fe000001">
+    <name>UserType General Template</name>
+    <iterationSpecification>
+        <maxIterations>99</maxIterations>
+        <tokenExpression>
+            <script>
+                <code>
+                    if (iteration == 0) {
+                        return "";
+                    } else {
+                        return sprintf("%03d", iteration + 1);
+                    }
+                </code>
+            </script>
+        </tokenExpression>
+    </iterationSpecification>
+    <mapping>
+        <name>UserType General Template: Generate login</name>
+        <evaluationPhase>afterAssignments</evaluationPhase>
+        <source>
+            <path>givenName</path>
+        </source>
+        <source>
+            <path>familyName</path>
+        </source>
+        <expression>
+            <script>
+                <code>
+                map = new HashMap()
+                map.put("lastName", familyName)
+
+                return coreLib.execute("generateLoginBase", map) + iterationToken
+                </code>
+            </script>
+        </expression>
+        <target>
+            <path>name</path>
+        </target>
+    </mapping>
+    <mapping>
+        <name>UserType General Template: Generate fullName</name>
+        <description></description>
+        <strength>strong</strength>
+        <source>
+            <path>givenName</path>
+        </source>
+        <source>
+            <path>familyName</path>
+        </source>
+        <expression>
+            <script>
+                <code>
+                    basic.concatName(givenName, familyName)
+                </code>
+            </script>
+        </expression>
+        <target>
+            <path>fullName</path>
+        </target>
+    </mapping>
+    <mapping>
+        <name>UserType General Template: Assign 'Employee' role</name>
+        <strength>strong</strength>
+        <source>
+            <path>activation/administrativeStatus</path>
+        </source>
+        <expression>
+            <assignmentTargetSearch>
+                <targetType>c:RoleType</targetType>
+                <filter>
+                    <q:equal>
+                        <q:path>c:name</q:path>
+                        <q:value>Employee</q:value>
+                    </q:equal>
+                </filter>
+            </assignmentTargetSearch>
+        </expression>
+        <target>
+            <path>assignment</path>
+        </target>
+        <condition>
+            <script>
+                <code>
+                    import com.evolveum.midpoint.xml.ns._public.common.common_3.ActivationStatusType;
+                    return (administrativeStatus == ActivationStatusType.ENABLED)
+                </code>
+            </script>
+        </condition>
+    </mapping>
+    <mapping>
+        <name>UserType General Template: Assign organizational unit (on demand)</name>
+        <strength>strong</strength>
+        <authoritative>true</authoritative>
+        <description>
+            Create Organization structure on demand
+        </description>
+        <source>
+            <path>organizationalUnit</path>
+        </source>
+        <expression>
+            <assignmentTargetSearch>
+                <targetType>c:OrgType</targetType>
+                <filter>
+                    <q:equal>
+                        <q:path>c:name</q:path>
+                        <expression>
+                            <script>
+                                <code>
+                                    return organizationalUnit
+                                </code>
+                            </script>
+                        </expression>
+                    </q:equal>
+                </filter>
+                <createOnDemand>true</createOnDemand>
+                <populateObject>
+                    <populateItem>
+                        <expression>
+                            <script>
+                                <code>
+                                    return organizationalUnit
+                                </code>
+                            </script>
+                        </expression>
+                        <target>
+                            <path>name</path>
+                        </target>
+                    </populateItem>
+                    <populateItem>
+                        <expression>
+                            <assignmentTargetSearch>
+                                <targetType>c:OrgType</targetType>
+                                <filter>
+                                    <q:equal>
+                                        <q:path>name</q:path>
+                                        <expression>
+                                            <value>Organization Inc.</value>
+                                        </expression>
+                                    </q:equal>
+                                </filter>
+                            </assignmentTargetSearch>
+                        </expression>
+                        <target>
+                            <path>assignment</path>
+                        </target>
+                    </populateItem>
+                    <populateItem>
+                        <expression>
+                            <assignmentTargetSearch>
+                                <targetType>c:ArchetypeType</targetType>
+                                <filter>
+                                    <q:equal>
+                                        <q:path>name</q:path>
+                                        <expression>
+                                            <value>Organization</value>
+                                        </expression>
+                                    </q:equal>
+                                </filter>
+                            </assignmentTargetSearch>
+                        </expression>
+                        <target>
+                            <path>assignment</path>
+                        </target>
+                    </populateItem>
+                </populateObject>
+            </assignmentTargetSearch>
+        </expression>
+        <target>
+            <path>assignment</path>
+        </target>
+    </mapping>
+    <mapping>
+        <name>UserType General Template: Assign APP1-Account to every active employee</name>
+        <strength>strong</strength>
+        <source>
+            <path>activation/administrativeStatus</path>
+        </source>
+        <expression>
+            <assignmentTargetSearch>
+                <targetType>c:RoleType</targetType>
+                <filter>
+                    <q:equal>
+                        <q:path>c:name</q:path>
+                        <q:value>APP1-Account</q:value>
+                    </q:equal>
+                </filter>
+            </assignmentTargetSearch>
+        </expression>
+        <target>
+            <path>assignment</path>
+        </target>
+        <condition>
+            <script>
+                <code>
+                    import com.evolveum.midpoint.xml.ns._public.common.common_3.ActivationStatusType;
+                    return (administrativeStatus == ActivationStatusType.ENABLED)
+                </code>
+            </script>
+        </condition>
+    </mapping>
+    <mapping>
+        <name>UserType General Template: Assign membership of 'wifi-users' in APP1-Account to every active employee</name>
+        <strength>strong</strength>
+        <source>
+            <path>activation/administrativeStatus</path>
+        </source>
+        <expression>
+            <assignmentTargetSearch>
+                <targetType>c:RoleType</targetType>
+                <filter>
+                    <q:equal>
+                        <q:path>c:name</q:path>
+                        <q:value>wifi-users</q:value>
+                    </q:equal>
+                </filter>
+            </assignmentTargetSearch>
+        </expression>
+        <target>
+            <path>assignment</path>
+        </target>
+        <condition>
+            <script>
+                <code>
+                    import com.evolveum.midpoint.xml.ns._public.common.common_3.ActivationStatusType;
+                    return (administrativeStatus == ActivationStatusType.ENABLED)
+                </code>
+            </script>
+        </condition>
+    </mapping>
+</objectTemplate>

@@ -1,0 +1,16 @@
+<role xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="8bf55cdb-516e-4837-9211-d37dadd63b21" version="1">
+    <name>wifi-admins</name>
+    <assignment>
+        <targetRef oid="659782fb-b122-4f8e-a9fa-02b82c88dbc0" relation="org:default" type="c:RoleType"/>
+        <activation>
+            <effectiveStatus>enabled</effectiveStatus>
+        </activation>
+    </assignment>
+    <iteration>0</iteration>
+    <iterationToken/>
+    <activation>
+        <effectiveStatus>enabled</effectiveStatus>
+        <enableTimestamp>2022-03-22T20:27:35.678Z</enableTimestamp>
+    </activation>
+    <displayName>APP1 Membership (wifi-admins)</displayName>
+</role>

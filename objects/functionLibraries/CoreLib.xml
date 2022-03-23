@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- (c) 2020 Evolveum, All rights reserved -->
+<functionLibrary xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" oid="2a875eae-40b6-11e9-8be8-d7ff177af077">
+    <name>coreLib</name>
+    <description>Core functions</description>
+    <function>
+        <name>generateLoginBase</name>
+        <description>
+            Priezvisko bez diakritiky
+        </description>
+        <parameter>
+            <name>lastName</name>
+            <type>xsd:string</type>
+        </parameter>
+        <script>
+            <code>
+                tmpLastName  = basic.trim(basic.norm(basic.stringify(lastName)))
+                return tmpLastName?.replaceAll(" ", "")
+            </code>
+        </script>
+        <returnType>xsd:string</returnType>
+    </function>
+</functionLibrary>

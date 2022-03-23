@@ -1,0 +1,24 @@
+<role xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="a7274d9a-f7b2-4ac9-b35a-60fb92340edc" version="3">
+    <name>app-1-admins</name>
+    <assignment id="2">
+        <metadata>
+            <requestTimestamp>2022-03-22T22:18:13.756Z</requestTimestamp>
+            <requestorRef oid="00000000-0000-0000-0000-000000000002" relation="org:default" type="c:UserType"/>
+            <createTimestamp>2022-03-22T22:18:13.800Z</createTimestamp>
+            <creatorRef oid="00000000-0000-0000-0000-000000000002" relation="org:default" type="c:UserType"/>
+            <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#user</createChannel>
+        </metadata>
+        <targetRef oid="659782fb-b122-4f8e-a9fa-02b82c88dbc0" relation="org:default" type="c:RoleType"/>
+        <activation>
+            <effectiveStatus>enabled</effectiveStatus>
+        </activation>
+    </assignment>
+    <iteration>0</iteration>
+    <iterationToken/>
+    <roleMembershipRef oid="659782fb-b122-4f8e-a9fa-02b82c88dbc0" relation="org:default" type="c:RoleType"/>
+    <activation>
+        <effectiveStatus>enabled</effectiveStatus>
+        <enableTimestamp>2022-03-22T20:27:57.932Z</enableTimestamp>
+    </activation>
+    <displayName>APP1 Membership (app-1-admins)</displayName>
+</role>

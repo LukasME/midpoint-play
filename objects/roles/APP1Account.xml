@@ -1,0 +1,15 @@
+<role xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="85afa3d4-fe60-4e0e-8aee-7898407b5cab" version="3">
+    <name>APP1-Account</name>
+    <iteration>0</iteration>
+    <iterationToken/>
+    <activation>
+        <effectiveStatus>enabled</effectiveStatus>
+        <enableTimestamp>2022-03-22T20:06:48.631Z</enableTimestamp>
+    </activation>
+    <inducement id="2">
+        <construction>
+            <resourceRef oid="6198d5b3-7cfd-42ba-bb13-df984f26fcec" relation="org:default" type="c:ResourceType"/>
+            <kind>account</kind>
+        </construction>
+    </inducement>
+</role>

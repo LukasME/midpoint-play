@@ -1,0 +1,43 @@
+<org xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="78a7eecd-1b9e-426c-9b7e-ff35ca0356b5" version="1">
+    <name>Human resource</name>
+    <parentOrgRef oid="5088d874-9c0e-46d8-ab71-c0a41dfe79bc" relation="org:default" type="c:OrgType"/>
+    <assignment id="1">
+        <metadata>
+            <requestTimestamp>2022-03-22T12:48:32.642Z</requestTimestamp>
+            <requestorRef oid="00000000-0000-0000-0000-000000000002" relation="org:default" type="c:UserType"/>
+            <createTimestamp>2022-03-22T12:48:32.663Z</createTimestamp>
+            <creatorRef oid="00000000-0000-0000-0000-000000000002" relation="org:default" type="c:UserType"/>
+            <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#user</createChannel>
+        </metadata>
+        <targetRef oid="5088d874-9c0e-46d8-ab71-c0a41dfe79bc" relation="org:default" type="c:OrgType"/>
+        <activation>
+            <effectiveStatus>enabled</effectiveStatus>
+        </activation>
+    </assignment>
+    <assignment id="2">
+        <metadata>
+            <requestTimestamp>2022-03-22T12:48:32.642Z</requestTimestamp>
+            <requestorRef oid="00000000-0000-0000-0000-000000000002" relation="org:default" type="c:UserType"/>
+            <createTimestamp>2022-03-22T12:48:32.663Z</createTimestamp>
+            <creatorRef oid="00000000-0000-0000-0000-000000000002" relation="org:default" type="c:UserType"/>
+            <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#user</createChannel>
+        </metadata>
+        <targetRef oid="66e8c897-3f05-4c9f-a1c2-2094fcfe6187" relation="org:default" type="c:ArchetypeType"/>
+        <activation>
+            <effectiveStatus>enabled</effectiveStatus>
+        </activation>
+    </assignment>
+    <iteration>0</iteration>
+    <iterationToken/>
+    <archetypeRef oid="66e8c897-3f05-4c9f-a1c2-2094fcfe6187" relation="org:default" type="c:ArchetypeType"/>
+    <roleMembershipRef oid="5088d874-9c0e-46d8-ab71-c0a41dfe79bc" relation="org:default" type="c:OrgType"/>
+    <roleMembershipRef oid="66e8c897-3f05-4c9f-a1c2-2094fcfe6187" relation="org:default" type="c:ArchetypeType"/>
+    <activation>
+        <effectiveStatus>enabled</effectiveStatus>
+        <enableTimestamp>2022-03-22T12:48:32.652Z</enableTimestamp>
+    </activation>
+    <inducement>
+        <description>Inducement for 'hr-users' APP1 membership role</description>
+        <targetRef oid="7cd49421-4bfc-4b53-b17c-bbe6ca1d1435" type="c:RoleType"/>
+    </inducement>
+</org>

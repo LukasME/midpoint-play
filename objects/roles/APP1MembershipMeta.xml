@@ -1,0 +1,28 @@
+<role xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="659782fb-b122-4f8e-a9fa-02b82c88dbc0" version="3">
+    <name>APP1-Membership-Meta</name>
+    <iteration>0</iteration>
+    <iterationToken/>
+    <activation>
+        <effectiveStatus>enabled</effectiveStatus>
+        <enableTimestamp>2022-03-22T20:07:52.940Z</enableTimestamp>
+    </activation>
+    <inducement>
+        <construction>
+            <resourceRef oid="6198d5b3-7cfd-42ba-bb13-df984f26fcec" type="c:ResourceType"/>
+            <attribute>
+                <ref>ri:MemberOf</ref>
+                <outbound>
+                    <strength>strong</strength>
+                    <expression>
+                        <script>
+                            <code>
+                                return basic.stringify(immediateRole.name)
+                            </code>
+                        </script>
+                    </expression>
+                </outbound>
+            </attribute>
+        </construction>
+        <order>2</order>
+    </inducement>
+</role>
